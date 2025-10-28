@@ -1,0 +1,10 @@
+1. The Big Shift: javax.* to jakarta.* : This is the headline change. If your code still uses javax.annotation or javax.inject, Spring Boot 4 will simply not run it.
+The whole Java ecosystem has moved from javax packages to jakarta packages since Jakarta EE 9, and Boot 4 aligns with this.
+If your application uses third-party libraries that still depend on javax.*
+You will have to upgrade or replace those libraries before moving to Spring Boot 4. This is not a cosmetic change—it can break entire builds.
+2. Jackson 2 Is Gone, Welcome Jackson 3 : Spring Boot 4 upgrades to Jackson 3.x for JSON processing. That means Jackson 2.x is no longer supported.
+In Jackson 3, certain internal methods and modules have changed, so you may need to recompile or refactor your custom serializers.
+3. Goodbye spring-jcl : Spring Boot 4 removes Spring JCL, its old logging abstraction. Instead, it now uses Apache Commons Logging directly.
+4. End of JUnit 4 Support : JUnit 4 had a long life. But with Spring Boot 4, it is officially gone. Only JUnit 5 is supported.
+5. XML Configuration Is Officially History : Yes, some people still use XML for Spring configuration. With Boot 4, XML configuration is deprecated to the point of removal.
+But for enterprises with old codebases, this is another migration headache.
